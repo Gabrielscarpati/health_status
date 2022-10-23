@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
-class NameController extends StatelessWidget {
+class NameControllerLogIn extends StatelessWidget {
   final TextEditingController nameController;
   final String hint;
   final IconData iconData;
-  NameController({Key? key, required this.nameController, required this.hint, required this.iconData}) : super(key: key);
+  NameControllerLogIn({Key? key, required this.nameController, required this.hint, required this.iconData}) : super(key: key);
 
 
   @override
@@ -37,9 +36,9 @@ class NameController extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               hintText: hint,
-              prefixIcon: Icon(iconData),
+              prefixIcon: Icon(iconData, color: Colors.green,),
               suffixIcon: IconButton(
-                icon: Icon(Icons.close),
+                icon: Icon(Icons.close, color: Colors.green,),
                 onPressed: () =>
                     nameController.clear(),
               ),
@@ -52,11 +51,11 @@ class NameController extends StatelessWidget {
   }
 }
 
-class EmailController extends StatelessWidget {
+class EmailControllerLogIn extends StatelessWidget {
   final TextEditingController emailController;
   final String hint;
   final IconData iconData;
-   EmailController({Key? key, required this.emailController, required this.hint, required this.iconData}) : super(key: key);
+   EmailControllerLogIn({Key? key, required this.emailController, required this.hint, required this.iconData}) : super(key: key);
 
 
   @override
@@ -88,9 +87,9 @@ class EmailController extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               hintText: hint,
-              prefixIcon: Icon(iconData),
+              prefixIcon: Icon(iconData,color: Colors.green,),
               suffixIcon: IconButton(
-                icon: Icon(Icons.close),
+                icon: Icon(Icons.close, color: Colors.green,),
                 onPressed: () =>
                     emailController.clear(),
               ),
@@ -104,17 +103,17 @@ class EmailController extends StatelessWidget {
 }
 
 
-class PasswordController extends StatefulWidget {
+class PasswordControllerLogIn extends StatefulWidget {
   final TextEditingController passwordController;
   final String hint;
   final IconData iconData;
-  PasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData}) : super(key: key);
+  PasswordControllerLogIn({Key? key, required this.passwordController, required this.hint, required this.iconData}) : super(key: key);
 
   @override
-  State<PasswordController> createState() => _PasswordControllerState();
+  State<PasswordControllerLogIn> createState() => _PasswordControllerLogInState();
 }
 
-class _PasswordControllerState extends State<PasswordController> {
+class _PasswordControllerLogInState extends State<PasswordControllerLogIn> {
   bool passwordIsHidden = false;
 
   @override
@@ -141,6 +140,7 @@ class _PasswordControllerState extends State<PasswordController> {
             },
             controller: widget.passwordController,
             cursorColor: Colors.indigoAccent,
+            obscureText: passwordIsHidden,
 
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -150,7 +150,8 @@ class _PasswordControllerState extends State<PasswordController> {
               filled: true,
               fillColor: Colors.white,
               hintText: widget.hint,
-              prefixIcon: Icon(widget.iconData),
+
+              prefixIcon: Icon(widget.iconData,color: Colors.green,),
               suffixIcon: InkWell(
                 onTap: () {
                   setState(() {
@@ -161,6 +162,7 @@ class _PasswordControllerState extends State<PasswordController> {
                   passwordIsHidden
                       ? Icons.visibility
                       : Icons.visibility_off,
+                  color: Colors.green,
                 ),
               ),
             ),
@@ -171,77 +173,6 @@ class _PasswordControllerState extends State<PasswordController> {
     );
   }
 }
-
-class ConfirmPasswordController  extends StatefulWidget {
-  final TextEditingController confirmPasswordController;
-  final TextEditingController passwordController;
-  final String hint;
-  final IconData iconData;
-  ConfirmPasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData, required this.confirmPasswordController}) : super(key: key);
-
-  @override
-  State<ConfirmPasswordController> createState() => _ConfirmPasswordControllerState();
-}
-
-class _ConfirmPasswordControllerState extends State<ConfirmPasswordController> {
-
-  bool passwordIsHiddenConfirmPassword = false;
-  @override
-  Widget build(BuildContext context) {
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
-      child: SizedBox(
-        height: 50,
-        child: Material(
-          elevation: 8,
-          shadowColor: Colors.black87,
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(30),
-          child: TextFormField(
-            textAlignVertical: TextAlignVertical.bottom,
-            validator: (cofirmPasswordController) =>
-            widget.confirmPasswordController.text != widget.passwordController.text
-                ? 'The passwords need to match'
-                : null,
-            controller: widget.confirmPasswordController,
-            cursorColor: Colors.indigoAccent,
-
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide.none,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: widget.hint,
-              prefixIcon: Icon(widget.iconData),
-              suffixIcon: InkWell(
-                onTap: () {
-                  setState(() {
-                    passwordIsHiddenConfirmPassword = !passwordIsHiddenConfirmPassword;
-                  });
-                },
-                child: Icon(
-                  passwordIsHiddenConfirmPassword
-                      ? Icons.visibility
-                      : Icons.visibility_off,
-                ),
-              ),
-            ),
-            keyboardType: TextInputType.emailAddress,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-
 
 
 /*Widget inputField({required String hint, required IconData iconData}) {

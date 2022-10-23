@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:health_status/presenter/Sign%20Up/widgetsForSignUp.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
-import '../../main.dart';
-import '../components/loadingButton.dart';
+import '../../../components/loadingButton.dart';
+import '../../LogIn/viewLogIn.dart';
+import '../../SignUp/views/widgetsForSignUp.dart';
+
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -11,7 +12,6 @@ class SignUpScreen extends StatefulWidget {
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
-
 
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
@@ -94,17 +94,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account?",
+                    const Text("Already have an account?",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text('Sign Up',
+                    Text('Log In',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
-                        color: Colors.blue[600],
+                        color: Colors.blue[400],
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -116,10 +116,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => const SecondPage()),
+                          builder: (_) => const ViewLogIn()),
                           (route) => false
                   );
-
                 },
               ),
             ),
@@ -129,19 +128,3 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
-
-
-
-class SecondPage extends StatelessWidget {
-  const SecondPage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Text("hello"),
-      ),
-    );
-  }
-}
-

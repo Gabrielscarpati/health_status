@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_status/presenter/Sign%20Up/SignUpScreen.dart';
+import 'package:health_status/presenter/screeens/SignUp/viewSignUp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[200],
 
-      body: SignUpScreen(),
+      body: ViewSignUp(),
     );
   }
 }
