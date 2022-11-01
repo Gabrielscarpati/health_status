@@ -1,8 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:health_status/presenter/Sign%20Up/SignUpScreen.dart';
+import 'package:health_status/presenter/screeens/SignUp/viewSignUp.dart';
+import 'package:health_status/presenter/screeens/collectUserData/viewCollectUserData.dart';
+import 'package:health_status/providers/LogInSignUpProvider.dart';
+import 'package:health_status/providers/provider.dart';
+import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+
+
+  runApp(  MultiProvider(
+    providers: [
+      ChangeNotifierProvider( create: (context) => ProviderBase() ,),
+      ChangeNotifierProvider( create: (context) => LogInSignUpProvider() ,),
+/*
+      ChangeNotifierProvider( create: (context) => CitieProvider() ,),
+*/
+    ],
+    child: const MyApp(),
+  ),);
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +39,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-
   final String title;
 
   @override
@@ -38,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[200],
 
-      body: SignUpScreen(),
+      body: ViewCollectUserData(),
     );
   }
 }

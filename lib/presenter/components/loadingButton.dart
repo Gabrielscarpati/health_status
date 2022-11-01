@@ -14,9 +14,11 @@ class LoadingButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RoundedLoadingButton(
+      onPressed: goNextScreen,
+      controller: controller,
       child: Ink(
         decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [Color(0xff397f3f),Color(0xff397f3f),  Color(0xff397f3f)],
+            gradient: const LinearGradient(colors: [Color(0xff397f3f),Color(0xff397f3f),  Color(0xff397f3f)],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,//Color(0xff397f3f)
             ),
@@ -24,12 +26,12 @@ class LoadingButton extends StatelessWidget {
         ),
 
         child: Container(
-          constraints: BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+          constraints: const BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
           alignment: Alignment.center,
           child: Text(
             buttonText,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold
@@ -37,8 +39,6 @@ class LoadingButton extends StatelessWidget {
           ),
         ),
       ),
-      onPressed: goNextScreen,
-      controller: controller,
     );
   }
 }
