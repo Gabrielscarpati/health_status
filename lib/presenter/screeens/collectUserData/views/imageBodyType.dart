@@ -20,7 +20,7 @@ class _ImageBodyType extends State<ImageBodyType> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      color: Colors.red,
+      color: Colors.white,
       height: 180,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -33,7 +33,12 @@ class _ImageBodyType extends State<ImageBodyType> {
                     Container(
                       height: screenHeight*0.2,
                       width: screenWidth*.8,
-                      decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 3,
+                            color: Colors.blueGrey,
+                          ),
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
                           image: DecorationImage(
                               image: AssetImage('assets/background.jpeg'),
                               fit: BoxFit.fill
