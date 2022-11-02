@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_status/providers/LogInSignUpProvider.dart';
 import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
-import '../../../components/loadingButton.dart';
 
 
 class GenderEthnicity extends StatefulWidget {
@@ -15,25 +14,25 @@ class GenderEthnicity extends StatefulWidget {
 class _GenderEthnicity extends State<GenderEthnicity> {
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<LogInSignUpProvider>();
 
+    final provider = context.read<LogInSignUpProvider>();
     double heightBetweenFields = 8.0;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      height: 400,
+      color: Colors.red,
+      height: 140,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Container(
           child: Column(
             children: [
               TextButton(onPressed: (){
-                   },
+              },
                 child: const Text("Gender"),
               ),
               TextButton(onPressed: (){
-
               },
                 child: const Text("Ethnicity"),
               )

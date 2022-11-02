@@ -17,11 +17,13 @@ class _AgeMedicalConditions extends State<AgeMedicalConditions> {
   Widget build(BuildContext context) {
     final provider = context.read<LogInSignUpProvider>();
 
-    double heightBetweenFields = 8.0;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
+      color: Colors.yellow,
+      width: screenWidth*.6,
+      height: 140,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Center(
@@ -43,17 +45,6 @@ class _AgeMedicalConditions extends State<AgeMedicalConditions> {
                 ),
               ),
               const SizedBox(height: 30,),
-
-              LoadingButton(
-                buttonText: 'Sign Up',
-                goNextScreen: () {
-                provider.singUpUser(context,);
-                provider.btnController.reset();
-
-                },
-                controller: provider.btnController,
-
-              ),
               const Expanded(child: SizedBox()),
           ],
         ),

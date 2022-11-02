@@ -12,9 +12,9 @@ class ViewCollectUserData extends StatelessWidget {
         backgroundColor: Colors.white,
         body: Container(
           height: 910,
-            child: Center(
+
               child: CollectUserDataBody(),
-            )
+
       ),
     );
   }
