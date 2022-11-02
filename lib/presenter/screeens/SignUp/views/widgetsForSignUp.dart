@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:email_validator/email_validator.dart';
 
@@ -6,7 +5,7 @@ class NameController extends StatelessWidget {
   final TextEditingController nameController;
   final String hint;
   final IconData iconData;
-  NameController({Key? key, required this.nameController, required this.hint, required this.iconData}) : super(key: key);
+  const NameController({Key? key, required this.nameController, required this.hint, required this.iconData}) : super(key: key);
 
 
   @override
@@ -24,6 +23,7 @@ class NameController extends StatelessWidget {
             textAlignVertical: TextAlignVertical.bottom,
             validator: (emailController) {
               emailController == null ? 'Invalid Email' : null;
+              return null;
             },
 
             controller: nameController,
@@ -37,9 +37,9 @@ class NameController extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               hintText: hint,
-              prefixIcon: Icon(iconData),
+              prefixIcon: Icon(iconData, color: Colors.green,),
               suffixIcon: IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close, color: Colors.green,),
                 onPressed: () =>
                     nameController.clear(),
               ),
@@ -56,7 +56,7 @@ class EmailController extends StatelessWidget {
   final TextEditingController emailController;
   final String hint;
   final IconData iconData;
-   EmailController({Key? key, required this.emailController, required this.hint, required this.iconData}) : super(key: key);
+   const EmailController({Key? key, required this.emailController, required this.hint, required this.iconData}) : super(key: key);
 
 
   @override
@@ -88,9 +88,9 @@ class EmailController extends StatelessWidget {
               filled: true,
               fillColor: Colors.white,
               hintText: hint,
-              prefixIcon: Icon(iconData),
+              prefixIcon: Icon(iconData,color: Colors.green,),
               suffixIcon: IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close, color: Colors.green,),
                 onPressed: () =>
                     emailController.clear(),
               ),
@@ -108,7 +108,7 @@ class PasswordController extends StatefulWidget {
   final TextEditingController passwordController;
   final String hint;
   final IconData iconData;
-  PasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData}) : super(key: key);
+  const PasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData}) : super(key: key);
 
   @override
   State<PasswordController> createState() => _PasswordControllerState();
@@ -141,6 +141,7 @@ class _PasswordControllerState extends State<PasswordController> {
             },
             controller: widget.passwordController,
             cursorColor: Colors.indigoAccent,
+            obscureText: passwordIsHidden,
 
             decoration: InputDecoration(
               border: OutlineInputBorder(
@@ -150,7 +151,8 @@ class _PasswordControllerState extends State<PasswordController> {
               filled: true,
               fillColor: Colors.white,
               hintText: widget.hint,
-              prefixIcon: Icon(widget.iconData),
+
+              prefixIcon: Icon(widget.iconData,color: Colors.green,),
               suffixIcon: InkWell(
                 onTap: () {
                   setState(() {
@@ -161,6 +163,7 @@ class _PasswordControllerState extends State<PasswordController> {
                   passwordIsHidden
                       ? Icons.visibility
                       : Icons.visibility_off,
+                  color: Colors.green,
                 ),
               ),
             ),
@@ -177,7 +180,7 @@ class ConfirmPasswordController  extends StatefulWidget {
   final TextEditingController passwordController;
   final String hint;
   final IconData iconData;
-  ConfirmPasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData, required this.confirmPasswordController}) : super(key: key);
+  const ConfirmPasswordController({Key? key, required this.passwordController, required this.hint, required this.iconData, required this.confirmPasswordController}) : super(key: key);
 
   @override
   State<ConfirmPasswordController> createState() => _ConfirmPasswordControllerState();
@@ -188,7 +191,6 @@ class _ConfirmPasswordControllerState extends State<ConfirmPasswordController> {
   bool passwordIsHiddenConfirmPassword = false;
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
       child: SizedBox(
@@ -206,16 +208,18 @@ class _ConfirmPasswordControllerState extends State<ConfirmPasswordController> {
                 : null,
             controller: widget.confirmPasswordController,
             cursorColor: Colors.indigoAccent,
-
+            obscureText: passwordIsHiddenConfirmPassword,
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
                 borderSide: BorderSide.none,
               ),
+
               filled: true,
               fillColor: Colors.white,
               hintText: widget.hint,
-              prefixIcon: Icon(widget.iconData),
+
+              prefixIcon: Icon(widget.iconData,color: Colors.green,),
               suffixIcon: InkWell(
                 onTap: () {
                   setState(() {
@@ -226,6 +230,7 @@ class _ConfirmPasswordControllerState extends State<ConfirmPasswordController> {
                   passwordIsHiddenConfirmPassword
                       ? Icons.visibility
                       : Icons.visibility_off,
+                  color: Colors.green,
                 ),
               ),
             ),

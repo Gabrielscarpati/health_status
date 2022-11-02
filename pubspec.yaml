@@ -88,6 +88,14 @@ dependencies:
 
   google_fonts: ^3.0.1
 
+  firebase_auth: ^3.3.18
+
+  cloud_firestore: ^3.1.15
+
+  firebase_storage: ^10.2.10
+
+  firebase_core: ^1.17.0
+
   cloud_functions: ^3.2.17
 
   authentication_provider: ^1.0.1
@@ -107,6 +115,8 @@ dependencies:
   images_picker: ^1.2.11
 
   flutter_stripe: 5.1.0
+
+  lite_rolling_switch: ^1.0.0
 
 
 dev_dependencies:
