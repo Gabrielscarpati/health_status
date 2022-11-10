@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../components/buttonInsideApp.dart';
 import 'ageMedicalConditions.dart';
 import 'basicBiodata.dart';
-import 'buttonGenerateReport.dart';
 import 'genderEthnicity.dart';
 import 'imageBodyType.dart';
 
@@ -60,7 +60,7 @@ class CollectUserDataBody extends StatelessWidget {
                 Divider(height: 2, color: Colors.grey, thickness: 2,),
                 ImageBodyType(),
                 SizedBox(height: 8,),
-                ButtonGenerateReport(
+                ButtonInsideApp(
                   buttonText: 'Generate report',
                   goNextScreen: () {
 

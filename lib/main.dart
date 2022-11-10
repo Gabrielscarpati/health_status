@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:health_status/presenter/screeens/SignUp/viewSignUp.dart';
 import 'package:health_status/presenter/screeens/collectUserData/viewCollectUserData.dart';
+import 'package:health_status/presenter/screeens/medicalReportPart1/viewMedicalReportPart1.dart';
 import 'package:health_status/providers/LogInSignUpProvider.dart';
 import 'package:health_status/providers/provider.dart';
 import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
@@ -53,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[200],
 
-      body: ViewCollectUserData(),
+      body: ViewMedicalReportPart1(),
     );
   }
 }

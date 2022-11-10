@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
-class ButtonGenerateReport extends StatelessWidget {
+class ButtonInsideApp extends StatelessWidget {
   final String buttonText;
   final RoundedLoadingButtonController controller;
   final void Function() goNextScreen;
-  const ButtonGenerateReport({Key? key,
+  const ButtonInsideApp({Key? key,
     required this.buttonText,
     required this.goNextScreen,
     required this.controller,
