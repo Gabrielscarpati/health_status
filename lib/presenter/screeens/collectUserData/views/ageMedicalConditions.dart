@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:health_status/providers/LogInSignUpProvider.dart';
-import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import '../../../../providers/collectUserDataProvider.dart';
 import '../components/buttonWithMarginScreenCollectUserData.dart';
 import '../components/greenTextScreenCollectUserData.dart';
-import '../../../components/loadingButton.dart';
 import '../../../components/sliderBarWidget.dart';
 import '../components/greyTextScreenCollectUserData.dart';
+import 'package:provider/provider.dart';
 
 
 class AgeMedicalConditions extends StatefulWidget {
@@ -20,7 +19,7 @@ class AgeMedicalConditions extends StatefulWidget {
 class _AgeMedicalConditions extends State<AgeMedicalConditions> {
   @override
   Widget build(BuildContext context) {
-    final provider = context.read<LogInSignUpProvider>();
+    CollectUserDataProvider _Provider = context.read<CollectUserDataProvider>();
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -50,7 +49,7 @@ class _AgeMedicalConditions extends State<AgeMedicalConditions> {
                     text: "Age",
                   ),
                   SizedBox(width:8 ,),
-                  BrightnessSliderContainer(maxValue: 100, minValue: 0, textMaxValue: '100', textMinValue: '0',),
+                  BrightnessSliderContainer(maxValue: 100, minValue: 0, textMaxValue: '100', textMinValue: '0', currentSliderValue: _Provider.currentSliderValueAge,),
                 ],
               ),
               SizedBox(height: 8,),

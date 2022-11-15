@@ -25,32 +25,21 @@ class FirebaseManager{
   }*/
 
 
-  Future<RespostaProcessamento> signUpUser(context, {required String email, required String password}) async {
-
-    RespostaProcessamento response = RespostaProcessamento.ok();
-    ShowSnackBar snack = ShowSnackBar(context: context);
-    //debugPrint("email:$email password:$password");
-    UserCredential result = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
-
-    //  debugPrint(result.data!.toJson().toString());
-
-    if (result.user != null) {
-      snack.showSnackBar(message: 'Sucesso!');
-
-      snack.showSnackBar(message:"Por favor, verifique seu email");
-      //Navigator.pushReplacementNamed(context, '/login', arguments: ScreenArguments("", "Por favor, verifique seu email", false));
-
-
-    }else{
-
-      snack.showSnackBar(message:"Por favor, verifique seu email");
-      //Navigator.pushReplacementNamed(context, '/login', arguments: ScreenArguments("", "Por favor, verifique seu email", false));
-
-
+  Future<User?> registerUser (String email, String password) async {
+    try {
+      UserCredential userCredential = await firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+      await loginUser(email, password);
+      return userCredential.user;
+    } on FirebaseAuthException catch(e){
+      print(e);
+      //ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.message.toString()),backgroundColor: Colors.red));
+    } catch (e){
+      print(e);
     }
-
-    return response;
   }
+
+
+
 
 
 

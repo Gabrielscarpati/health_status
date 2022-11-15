@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:health_status/providers/LogInSignUpProvider.dart';
+import 'package:health_status/presenter/screeens/collectUserData/viewCollectUserData.dart';
+import 'package:health_status/providers/logInSignUpProvider.dart';
 import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
+import '../../../../infra/services/firebase/firebaseManager.dart';
 import '../../../components/loadingButton.dart';
 import '../../LogIn/viewLogIn.dart';
 import 'widgetsForSignUp.dart';
@@ -47,7 +49,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 nameController: provider.nameController,
                 hint: 'Name',
                 iconData: Icons.person,
-
               ),
 
               SizedBox(height: heightBetweenFields ,),
@@ -75,9 +76,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
               LoadingButton(
                 buttonText: 'Sign Up',
                 goNextScreen: () {
+                  FirebaseManager().registerUser(
+                      provider.signUpPageConfirmPasswordController.text.trim(),
+                      provider.signUpPagePasswordController.text.trim());
+
                 provider.singUpUser(context,);
                 provider.btnController.reset();
-
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const ViewCollectUserData()),
+                  );
                 },
                 controller: provider.btnController,
 

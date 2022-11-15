@@ -1,22 +1,26 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:health_status/presenter/screeens/LogIn/viewLogIn.dart';
 import 'package:health_status/presenter/screeens/SignUp/viewSignUp.dart';
+import 'package:health_status/presenter/screeens/SignUp/views/SignUpScreen.dart';
 import 'package:health_status/presenter/screeens/collectUserData/viewCollectUserData.dart';
 import 'package:health_status/presenter/screeens/medicalReportPart1/viewMedicalReportPart1.dart';
-import 'package:health_status/providers/LogInSignUpProvider.dart';
+import 'package:health_status/providers/logInSignUpProvider.dart';
+import 'package:health_status/providers/collectUserDataProvider.dart';
 import 'package:health_status/providers/provider.dart';
 import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
 
 void main() async {
+  //WidgetsFlutterBinding.ensureInitialized();
+  // Aquiii
+  //await Firebase.initializeApp();
 
 
   runApp(  MultiProvider(
     providers: [
       ChangeNotifierProvider( create: (context) => ProviderBase() ,),
       ChangeNotifierProvider( create: (context) => LogInSignUpProvider() ,),
-/*
-      ChangeNotifierProvider( create: (context) => CitieProvider() ,),
-*/
+      ChangeNotifierProvider( create: (context) => CollectUserDataProvider() ,),
     ],
     child: const MyApp(),
   ),);
@@ -54,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[200],
 
-      body: ViewMedicalReportPart1(),
+      body: SignUpScreen(),
     );
   }
 }

@@ -1,17 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import '../../../../providers/collectUserDataProvider.dart';
 import '../../../components/buttonInsideApp.dart';
+import '../../medicalReportPart1/viewMedicalReportPart1.dart';
 import 'ageMedicalConditions.dart';
 import 'basicBiodata.dart';
 import 'genderEthnicity.dart';
 import 'imageBodyType.dart';
+import 'package:provider/provider.dart';
+
 
 class CollectUserDataBody extends StatelessWidget {
   const CollectUserDataBody({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CollectUserDataProvider _Provider = context.read<CollectUserDataProvider>();
+
     RoundedLoadingButtonController controller = RoundedLoadingButtonController();
     return Container(
       height: MediaQuery.of(context).size.height,
@@ -63,7 +68,11 @@ class CollectUserDataBody extends StatelessWidget {
                 ButtonInsideApp(
                   buttonText: 'Generate report',
                   goNextScreen: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const ViewMedicalReportPart1()),
+                    );
                   },
                   controller: controller,)
         ],

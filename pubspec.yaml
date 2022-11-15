@@ -118,7 +118,6 @@ dependencies:
 
   lite_rolling_switch: ^1.0.0
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter

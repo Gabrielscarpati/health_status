@@ -30,8 +30,8 @@ class LogInSignUpProvider with ChangeNotifier {
     if(formKeyAuthenticationSignUp.currentState!.validate()){
       print('ooooooo');
 
-      RespostaProcessamento resp =  await FirebaseManager().signUpUser(context,email: signUpPageEmailController.text.trim(), password: signUpPagePasswordController.text.trim());
-      resp;
+      //RespostaProcessamento resp =  await FirebaseManager().registerUser(context,email: signUpPageEmailController.text.trim(), password: signUpPagePasswordController.text.trim());
+      //resp;
     }
     btnController.reset();
   }

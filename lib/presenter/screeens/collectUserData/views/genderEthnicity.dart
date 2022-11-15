@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:health_status/providers/LogInSignUpProvider.dart';
-import 'package:linkfive_purchases_provider/linkfive_purchases_provider.dart';
+import '../../../../providers/collectUserDataProvider.dart';
+import 'package:provider/provider.dart';
 
 
 class GenderEthnicity extends StatefulWidget {
@@ -19,7 +19,7 @@ class _GenderEthnicity extends State<GenderEthnicity> {
 
     String dropdownValue = list.first;
 
-        final provider = context.read<LogInSignUpProvider>();
+    CollectUserDataProvider _Provider = context.read<CollectUserDataProvider>();
         double heightBetweenFields = 8.0;
         double screenWidth = MediaQuery.of(context).size.width;
         double screenHeight = MediaQuery.of(context).size.height;

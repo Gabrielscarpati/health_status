@@ -6,8 +6,9 @@ class BrightnessSliderContainer extends StatefulWidget {
   final String textMaxValue;
   final double minValue;
   final String textMinValue;
+  double currentSliderValue;
 
-  const BrightnessSliderContainer({Key? key, required this.maxValue, required this.minValue, required this.textMaxValue, required this.textMinValue}) : super(key: key);
+  BrightnessSliderContainer({Key? key, required this.maxValue, required this.minValue, required this.textMaxValue, required this.textMinValue, required this.currentSliderValue}) : super(key: key);
 
   @override
   _BrightnessSliderContainerState createState() => _BrightnessSliderContainerState();
@@ -16,7 +17,8 @@ class BrightnessSliderContainer extends StatefulWidget {
 class _BrightnessSliderContainerState extends State<BrightnessSliderContainer> {
   @override
   double brightness = 10.0;
-  double _currentSliderValue = 1;
+  int counterStarted = 0;
+  
 
   Widget build(BuildContext context) {
 
@@ -28,14 +30,15 @@ class _BrightnessSliderContainerState extends State<BrightnessSliderContainer> {
           child: Slider(
             inactiveColor: Colors.grey,
             activeColor: Colors.orangeAccent,
-            value: _currentSliderValue,
+            value: widget.currentSliderValue,
             max: widget.maxValue,
             min: widget.minValue,
             divisions: 100,
-            label: _currentSliderValue.round().toString(),
+            label: widget.currentSliderValue.round().toString(),
             onChanged: (double value) {
               setState(() {
-                _currentSliderValue = value;
+                counterStarted++;
+                widget.currentSliderValue = value;
               });
             },
           ),

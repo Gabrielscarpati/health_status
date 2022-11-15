@@ -4,6 +4,7 @@ import 'package:rounded_loading_button/rounded_loading_button.dart';
 import '../../../components/loadingButton.dart';
 import '../../SignUp/viewSignUp.dart';
 import '../../SignUp/views/widgetsForSignUp.dart';
+import '../../collectUserData/viewCollectUserData.dart';
 
 
 class LogInScreen extends StatefulWidget {
@@ -63,9 +64,13 @@ class _LogInScreenScreenState extends State<LogInScreen> {
                 SizedBox(height: heightBetweenFields*12 ,),
 
                 LoadingButton(
-                  buttonText: 'Sign Up',
+                  buttonText: 'Log In',
                   goNextScreen: () {
-
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const ViewCollectUserData()),
+                    );
                   },
                   controller: controller,
 
